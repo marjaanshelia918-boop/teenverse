@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="weather-style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🌤️ Weather Dashboard</h1>
+            <p>Get Real-Time Weather Information</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-box" 
+                placeholder="Enter city name..."
+                autocomplete="off"
+            >
+            <button class="search-btn" onclick="searchWeather()">Search</button>
+            <button class="location-btn" onclick="getLocationWeather()" title="Use My Location">📍</button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="spinner hidden"></div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <!-- Current Weather -->
+        <div id="currentWeatherSection" class="current-weather hidden">
+            <div class="weather-card">
+                <div class="city-info">
+                    <h2 id="cityName"></h2>
+                    <p id="weatherDate"></p>
+                </div>
+                <div class="weather-main">
+                    <div class="temp-section">
+                        <span id="temperature" class="temperature"></span>
+                        <span id="weatherDescription" class="description"></span>
+                    </div>
+                    <div id="weatherIcon" class="weather-icon"></div>
+                </div>
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span class="detail-label">💧 Humidity</span>
+                        <span id="humidity" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">💨 Wind Speed</span>
+                        <span id="windSpeed" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">🌡️ Feels Like</span>
+                        <span id="feelsLike" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">🔍 Pressure</span>
+                        <span id="pressure" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">👁️ Visibility</span>
+                        <span id="visibility" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">☀️ UV Index</span>
+                        <span id="uvIndex" class="detail-value"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5-Day Forecast -->
+        <div id="forecastSection" class="forecast-section hidden">
+            <h3>5-Day Forecast</h3>
+            <div id="forecastContainer" class="forecast-grid"></div>
+        </div>
+
+        <!-- Hourly Forecast -->
+        <div id="hourlySection" class="hourly-section hidden">
+            <h3>Hourly Forecast</h3>
+            <div id="hourlyContainer" class="hourly-grid"></div>
+        </div>
+
+        <!-- Recent Searches -->
+        <div id="recentSearchesSection" class="recent-searches hidden">
+            <h3>Recent Searches</h3>
+            <div id="recentSearchesList" class="recent-list"></div>
+        </div>
+    </div>
+
+    <script src="weather-script.js"></script>
+</body>
+</html>
