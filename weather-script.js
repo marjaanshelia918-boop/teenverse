@@ -1,5 +1,5 @@
 // Weather API Configuration
-const API_KEY = 'e8d9d4b2d2d2d2d2d2d2d2d2d2d2d2d2'; // Demo key - get your own from openweathermap.org
+const API_KEY = '8d4fb5b93d4af21d66a2948710284366'; // Free tier API key from OpenWeatherMap
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5';
 const GEO_API_URL = 'https://api.openweathermap.org/geo/1.0';
 
