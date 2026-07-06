@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeenVerse - Complete Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            animation: slideDown 0.6s ease;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: 0.3s ease;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-body h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .features li {
+            color: #666;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s ease;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #667eea;
+            margin-top: 1rem;
+            display: block;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .stats {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease 0.3s both;
+        }
+
+        .stats h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: #f0f0f0;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            opacity: 0.9;
+            animation: slideUp 0.6s ease 0.6s both;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🌟 TeenVerse</h1>
+            <p>Your Complete Social & Entertainment Platform for Teenagers</p>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <h3>📊 Platform Overview</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Main Sections</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Cities Supported</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsive</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Real-Time</div>
+                    <div class="stat-label">Weather Data</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="project-grid">
+            <!-- TeenVerse Main -->
+            <div class="project-card">
+                <div class="card-header">
+                    <div class="card-icon">🌐</div>
+                    <h2>TeenVerse Hub</h2>
+                    <p>Main Platform</p>
+                </div>
+                <div class="card-body">
+                    <h3>Complete Social Platform</h3>
+                    <ul class="features">
+                        <li>Gaming Community</li>
+                        <li>Music Playlists</li>
+                        <li>Learning Resources</li>
+                        <li>Creative Showcase</li>
+                        <li>Community Groups</li>
+                        <li>Trending Content</li>
+                    </ul>
+                    <a href="index.html" class="btn">Visit Platform →</a>
+                </div>
+            </div>
+
+            <!-- Explore Page -->
+            <div class="project-card">
+                <div class="card-header">
+                    <div class="card-icon">🔍</div>
+                    <h2>Explore</h2>
+                    <p>Discover Content</p>
+                </div>
+                <div class="card-body">
+                    <h3>Browse & Discover</h3>
+                    <ul class="features">
+                        <li>Learning Materials</li>
+                        <li>Video Content</li>
+                        <li>Photography Gallery</li>
+                        <li>Creative Arts</li>
+                        <li>Sports Updates</li>
+                        <li>Travel Stories</li>
+                    </ul>
+                    <a href="explore.html" class="btn">Explore →</a>
+                </div>
+            </div>
+
+            <!-- Games Section -->
+            <div class="project-card">
+                <div class="card-header">
+                    <div class="card-icon">🎮</div>
+                    <h2>Gaming Hub</h2>
+                    <p>Play & Connect</p>
+                </div>
+                <div class="card-body">
+                    <h3>Multiplayer Gaming</h3>
+                    <ul class="features">
+                        <li>Featured Games</li>
+                        <li>Player Rankings</li>
+                        <li>Game Categories</li>
+                        <li>Player Reviews</li>
+                        <li>Live Tournaments</li>
+                        <li>Community Events</li>
+                    </ul>
+                    <a href="games.html" class="btn">Play Games →</a>
+                </div>
+            </div>
+
+            <!-- Music Section -->
+            <div class="project-card">
+                <div class="card-header">
+                    <div class="card-icon">🎵</div>
+                    <h2>Music Studio</h2>
+                    <p>Share & Discover</p>
+                </div>
+                <div class="card-body">
+                    <h3>Music Streaming</h3>
+                    <ul class="features">
+                        <li>Curated Playlists</li>
+                        <li>Featured Artists</li>
+                        <li>Music Categories</li>
+                        <li>Follow Artists</li>
+                        <li>Create Playlists</li>
+                        <li>Share Music</li>
+                    </ul>
+                    <a href="music.html" class="btn">Listen Now →</a>
+                </div>
+            </div>
+
+            <!-- Community -->
+            <div class="project-card">
+                <div class="card-header">
+                    <div class="card-icon">👥</div>
+                    <h2>Community</h2>
+                    <p>Connect & Share</p>
+                </div>
+                <div class="card-body">
+                    <h3>Social Discussions</h3>
+                    <ul class="features">
+                        <li>Discussion Threads</li>
+                        <li>Community Groups</li>
+                        <li>User Interactions</li>
+                        <li>Join Groups</li>
+                        <li>Share Ideas</li>
+                        <li>Build Network</li>
+                    </ul>
+                    <a href="community.html" class="btn">Join Community →</a>
+                </div>
+            </div>
+
+            <!-- Weather Dashboard -->
+            <div class="project-card">
+                <div class="card-header">
+                    <div class="card-icon">🌤️</div>
+                    <h2>Weather Dashboard</h2>
+                    <p>Real-Time Data</p>
+                </div>
+                <div class="card-body">
+                    <h3>Live Weather Updates</h3>
+                    <ul class="features">
+                        <li>Current Conditions</li>
+                        <li>5-Day Forecast</li>
+                        <li>Hourly Predictions</li>
+                        <li>City Search</li>
+                        <li>Location Services</li>
+                        <li>Live Updates</li>
+                    </ul>
+                    <a href="weather.html" class="btn">Check Weather →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="stats" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
+            <h3>🚀 Ready to Explore?</h3>
+            <p style="font-size: 1.1rem; margin: 1rem 0;">Choose any section above to get started with TeenVerse</p>
+            <p style="font-size: 0.9rem; opacity: 0.9;">Your all-in-one platform for gaming, music, learning, and connecting with teens worldwide</p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 TeenVerse | All Rights Reserved</p>
+            <p>Built with ❤️ for Teenagers Around the World</p>
+        </footer>
+    </div>
+</body>
+</html>
